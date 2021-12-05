@@ -1,8 +1,38 @@
+import { Transition } from "@headlessui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import React, { Fragment, useState } from "react";
 import backgroundImage from "../public/images/background-home.png";
+
+const mobileMenuItems = [
+  {
+    label: "HOME",
+    id: "00",
+    href: "#",
+    active: true,
+  },
+  {
+    label: "DESTINATION",
+    id: "01",
+    href: "#",
+    active: false,
+  },
+  {
+    label: "CREW",
+    id: "02",
+    href: "#",
+    active: false,
+  },
+  {
+    label: "TECHNOLOGY",
+    id: "03",
+    href: "#",
+    active: false,
+  },
+];
 const Home: NextPage = () => {
+  const [showMenu, setShowMenu] = useState(false);
   return (
     <div className="min-h-screen relative">
       <Head>
@@ -23,11 +53,13 @@ const Home: NextPage = () => {
               fill="#0B0D17"
             />
           </svg>
-          <svg className="w-6 h-6" viewBox="0 0 24 21" fill="currentColor">
-            <rect width="24" height="3" fill="#D0D6F9" />
-            <rect y="9" width="24" height="3" fill="#D0D6F9" />
-            <rect y="18" width="24" height="3" fill="#D0D6F9" />
-          </svg>
+          <button onClick={() => setShowMenu(true)}>
+            <svg className="w-6 h-6" viewBox="0 0 24 21" fill="currentColor">
+              <rect width="24" height="3" fill="#D0D6F9" />
+              <rect y="9" width="24" height="3" fill="#D0D6F9" />
+              <rect y="18" width="24" height="3" fill="#D0D6F9" />
+            </svg>
+          </button>
         </div>
         <div className="mt-12 text-center">
           <div>
@@ -56,14 +88,65 @@ const Home: NextPage = () => {
         </div>
       </div>
       {/* Menu */}
-      <div className="absolute top-0 right-0 w-64 h-screen backdrop-filter backdrop-blur-3xl firefox:bg-primary firefox:opacity-90">
-        <h2 className="text-white">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat,
-          soluta porro! Distinctio tempora totam hic ut, laboriosam voluptatum
-          repellendus. Itaque inventore aspernatur ipsam officia dolores porro
-          suscipit esse rem earum.
-        </h2>
-      </div>
+      <Transition
+        show={showMenu}
+        as={Fragment}
+        enter="transition-translate ease-out duration-300"
+        enterFrom="transform translate-x-full opacity-0"
+        enterTo="transform translate-x-0 opacity-100"
+        leave="transition-translate ease-in duration-300"
+        leaveFrom="transform translate-x-0 opacity-100"
+        leaveTo="transform translate-x-full opacity-0"
+      >
+        <div className="transform absolute origin-top-right items-center top-0 right-0 w-64 h-screen backdrop-filter backdrop-blur-3xl firefox:bg-primary">
+          <div className="w-full flex items-start justify-end p-8">
+            <button onClick={() => setShowMenu(false)}>
+              <svg className="h-5 w-5" viewBox="0 0 20 21" fill="currentColor">
+                <rect
+                  x="2.5752"
+                  y="0.954102"
+                  width="24"
+                  height="3"
+                  transform="rotate(45 2.5752 0.954102)"
+                  fill="#D0D6F9"
+                />
+                <rect
+                  x="0.454102"
+                  y="17.9246"
+                  width="24"
+                  height="3"
+                  transform="rotate(-45 0.454102 17.9246)"
+                  fill="#D0D6F9"
+                />
+              </svg>
+            </button>{" "}
+          </div>
+          <nav className="text-white mt-16 pl-8">
+            <ul className="space-y-8">
+              {mobileMenuItems.map((item) => (
+                <li key={item.id}>
+                  <div
+                    className={
+                      item.active
+                        ? "flex items-center  min-h-[32px] border-r-4 border-secondary"
+                        : "flex items-center  min-h-[32px]"
+                    }
+                  >
+                    <button>
+                      <span className="font-barlow-condensed font-semibold tracking-widest">
+                        {item.id}
+                      </span>
+                      <span className="ml-3 font-barlow-condensed font-thin tracking-widest">
+                        {item.label}
+                      </span>
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      </Transition>
     </div>
   );
 };
