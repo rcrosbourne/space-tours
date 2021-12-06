@@ -42,26 +42,54 @@ const Home: NextPage = () => {
       </Head>
 
       <Image src={backgroundImage} alt="" layout="fill" objectFit="cover" />
-      <div className="p-4 z-auto text-white relative">
-        <div className="flex items-center justify-between">
-          <svg viewBox="0 0 40 40" fill="currentColor" className="h-10 w-10">
-            <circle cx="20" cy="20" r="20" fill="white" />
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M20 0C20 0 20 20 0 20C19.648 20.1428 20 40 20 40C20 40 20 20 39.9999 20C20 20 20 0 20 0Z"
-              fill="#0B0D17"
-            />
-          </svg>
-          <button onClick={() => setShowMenu(true)}>
+      <div className="p-4 md:px-0 md:pt-0 z-auto text-white relative">
+        <div className="flex items-center justify-between md:min-h-[96px]">
+          {/* md:pl-10 md:pr-12 */}
+          <div className="w-full md:min-h-[96px] flex items-center justify-between pl-2 md:pl-10">
+            <svg viewBox="0 0 40 40" fill="currentColor" className="h-10 w-10">
+              <circle cx="20" cy="20" r="20" fill="white" />
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M20 0C20 0 20 20 0 20C19.648 20.1428 20 40 20 40C20 40 20 20 39.9999 20C20 20 20 0 20 0Z"
+                fill="#0B0D17"
+              />
+            </svg>
+          </div>
+          {/* Mobile menu button */}
+          <button onClick={() => setShowMenu(true)} className="md:hidden">
             <svg className="w-6 h-6" viewBox="0 0 24 21" fill="currentColor">
               <rect width="24" height="3" fill="#D0D6F9" />
               <rect y="9" width="24" height="3" fill="#D0D6F9" />
               <rect y="18" width="24" height="3" fill="#D0D6F9" />
             </svg>
           </button>
+          {/* Medium menu */}
+          {/* backdrop background */}
+          <nav className="hidden md:relative md:flex md:items-center md:min-h-[96px] md:pr-12">
+            <div className="md:absolute md:top-0 md:right-0 md:min-w-[444px]  md:bg-white md:opacity-5 md:min-h-[96px] md:pl-12 md:backdrop-filter md:backdrop-blur-3xl firefox:bg-transparent" />
+            <ul className="flex items-center justify-between space-x-9">
+              {mobileMenuItems.map((item) => (
+                <li key={item.id} className="flex items-center justify-center">
+                  <div
+                    className={
+                      item.active
+                        ? "flex items-center min-h-[96px] border-b-4 border-white pt-1"
+                        : "flex items-center  min-h-[96px]"
+                    }
+                  >
+                    <button>
+                      <span className="ml-3 md:ml-0 font-barlow-condensed font-thin tracking-widest md:leading-4">
+                        {item.label}
+                      </span>
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
-        <div className="mt-12 text-center">
+        <div className="mt-12 md:mt-24 md:max-w-[450px] md:mx-auto text-center">
           <div>
             <p className="font-barlow-condensed text-secondary leading-5 tracking-[2.7px] font-light">
               SO, YOU WANT TO TRAVEL TO
@@ -98,7 +126,7 @@ const Home: NextPage = () => {
         leaveFrom="transform translate-x-0 opacity-100"
         leaveTo="transform translate-x-full opacity-0"
       >
-        <div className="transform absolute origin-top-right items-center top-0 right-0 w-64 h-screen backdrop-filter backdrop-blur-3xl firefox:bg-primary">
+        <div className="md:hidden absolute origin-top-right items-center top-0 right-0 w-64 h-screen backdrop-filter backdrop-blur-3xl firefox:bg-primary">
           <div className="w-full flex items-start justify-end p-8">
             <button onClick={() => setShowMenu(false)}>
               <svg className="h-5 w-5" viewBox="0 0 20 21" fill="currentColor">
