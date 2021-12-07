@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import React, { Fragment, useState } from "react";
-import backgroundImage from "../public/images/background-home.png";
+import backgroundImage from "../public/images/background-home.svg";
 
 const mobileMenuItems = [
   {
@@ -34,14 +34,20 @@ const mobileMenuItems = [
 const Home: NextPage = () => {
   const [showMenu, setShowMenu] = useState(false);
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen relative bg-primary">
       <Head>
         <title>Home</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
 
-      <Image src={backgroundImage} alt="" layout="fill" objectFit="cover" />
+      <Image
+        src={backgroundImage}
+        alt="background image"
+        layout="fill"
+        objectFit="cover"
+        objectPosition="center"
+      />
       <div className="p-4 md:px-0 md:pt-0 z-auto text-white relative">
         <div className="flex items-center justify-between md:min-h-[96px]">
           {/* md:pl-10 md:pr-12 */}
