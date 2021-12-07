@@ -12,11 +12,15 @@ module.exports = {
       tertiary: "#616476",
       white: "#FFFFFF",
       black: "#000000",
+      backdrop: "hsla(0, 0%, 100%, 0.04)",
     },
     fontFamily: {
       bellefair: ["Bellefair", "serif"],
       barlow: ["Barlow", "sans-serif"],
       "barlow-condensed": ["Barlow Condensed", "sans-serif"],
+    },
+    backdropBlur: {
+      "3xl": "81.5485px",
     },
   },
   variants: {

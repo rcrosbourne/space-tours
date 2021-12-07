@@ -4,6 +4,7 @@ import Head from "next/head";
 import Image from "next/image";
 import React, { Fragment, useState } from "react";
 import backgroundImage from "../public/images/background-home.svg";
+import backgroundImageLg from "../public/images/background-home-lg.svg";
 
 const mobileMenuItems = [
   {
@@ -40,18 +41,29 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
+      <div className="xl:hidden absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat bg-center">
+        <Image
+          src={backgroundImage}
+          alt="background image"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center-top"
+        />
+      </div>
+      <div className="hidden xl:block absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat bg-center">
+        <Image
+          src={backgroundImageLg}
+          alt="background image"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+        />
+      </div>
 
-      <Image
-        src={backgroundImage}
-        alt="background image"
-        layout="fill"
-        objectFit="cover"
-        objectPosition="center"
-      />
       <div className="p-4 md:px-0 md:pt-0 z-auto text-white relative">
-        <div className="flex items-center justify-between md:min-h-[96px]">
+        <div className="relative flex items-center justify-between md:min-h-[96px] xl:max-w-[1500px] xl:mx-auto">
           {/* md:pl-10 md:pr-12 */}
-          <div className="w-full md:min-h-[96px] flex items-center justify-between pl-2 md:pl-10">
+          <div className="relative w-full md:min-h-[96px] flex items-center justify-between pl-2 md:pl-10 xl:pl-14 xl:mt-16">
             <svg viewBox="0 0 40 40" fill="currentColor" className="h-10 w-10">
               <circle cx="20" cy="20" r="20" fill="white" />
               <path
@@ -61,6 +73,8 @@ const Home: NextPage = () => {
                 fill="#0B0D17"
               />
             </svg>
+            {/* Decorative line */}
+            <div className="hidden xl:inline absolute inset-0 top-[50%] left-[167px] opacity-25 bg-white  mix-blend-normal h-[1px] w-[473px]" />
           </div>
           {/* Mobile menu button */}
           <button onClick={() => setShowMenu(true)} className="md:hidden">
@@ -71,10 +85,10 @@ const Home: NextPage = () => {
             </svg>
           </button>
           {/* Medium menu */}
-          {/* backdrop background */}
-          <nav className="hidden md:relative md:flex md:items-center md:min-h-[96px] md:pr-12">
-            <div className="md:absolute md:top-0 md:right-0 md:min-w-[444px]  md:bg-white md:opacity-5 md:min-h-[96px] md:pl-12 md:backdrop-filter md:backdrop-blur-3xl firefox:bg-transparent" />
-            <ul className="flex items-center justify-between space-x-9">
+          <nav className="hidden md:relative md:flex md:items-center md:min-h-[96px] md:pr-12 xl:mt-16">
+            {/* backdrop background */}
+            <div className="md:absolute md:top-0 md:right-0 md:min-w-[444px]  md:bg-backdrop md:min-h-[96px] md:pl-12 md:backdrop-filter md:backdrop-blur-3xl xl:min-w-[830px] firefox:bg-transparent" />
+            <ul className="relative z-auto flex items-center justify-between space-x-9">
               {mobileMenuItems.map((item) => (
                 <li key={item.id} className="flex items-center justify-center">
                   <div
@@ -85,7 +99,10 @@ const Home: NextPage = () => {
                     }
                   >
                     <button>
-                      <span className="ml-3 md:ml-0 font-barlow-condensed font-thin tracking-widest md:leading-4">
+                      <span className="hidden xl:inline font-barlow-condensed font-semibold tracking-widest">
+                        {item.id}
+                      </span>
+                      <span className="ml-3 md:ml-0 xl:ml-3 font-barlow-condensed font-thin tracking-widest md:leading-4">
                         {item.label}
                       </span>
                     </button>
@@ -132,7 +149,7 @@ const Home: NextPage = () => {
         leaveFrom="transform translate-x-0 opacity-100"
         leaveTo="transform translate-x-full opacity-0"
       >
-        <div className="md:hidden absolute origin-top-right items-center top-0 right-0 w-64 h-screen backdrop-filter backdrop-blur-3xl firefox:bg-primary">
+        <div className="md:hidden absolute origin-top-right items-center top-0 right-0 w-64 h-screen bg-backdrop backdrop-filter backdrop-blur-3xl firefox:bg-primary">
           <div className="w-full flex items-start justify-end p-8">
             <button onClick={() => setShowMenu(false)}>
               <svg className="h-5 w-5" viewBox="0 0 20 21" fill="currentColor">
