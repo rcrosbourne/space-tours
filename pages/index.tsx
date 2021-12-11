@@ -112,17 +112,17 @@ const Home: NextPage = () => {
             </ul>
           </nav>
         </div>
-        <div className="mt-12 md:mt-24 md:max-w-[450px] md:mx-auto text-center">
+        <div className="mt-12 md:mt-24 md:max-w-[450px] md:mx-auto text-center xl:text-left">
           <div>
-            <p className="font-barlow-condensed text-secondary leading-5 tracking-[2.7px] font-light">
+            <p className="font-barlow-condensed text-secondary leading-5 tracking-[2.7px] font-light xl:text-[28px]">
               SO, YOU WANT TO TRAVEL TO
             </p>
-            <p className="font-bellefair text-[80px] leading-[100px] mt-4">
+            <p className="font-bellefair text-[80px] leading-[100px] mt-4 xl:text-[150px]">
               SPACE
             </p>
           </div>
           <div className="">
-            <p className="font-barlow font-light text-center text-[15px] leading-[25px] text-secondary tracking-wide">
+            <p className="font-barlow font-light text-center text-[15px] leading-[25px] text-secondary tracking-wide xl:text-[18px] xl:leading-[32px] xl:text-left">
               Let&apos;s face it; if you want to go to space, you might as well
               genuinely go to outer space and not hover kind of on the edge of
               it. Well sit back and relax because we&apos;ll give you a truly

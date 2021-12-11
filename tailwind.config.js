@@ -1,9 +1,10 @@
 const plugin = require("tailwindcss/plugin");
 
 module.exports = {
-  mode: "jit",
-  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {},
     colors: {
@@ -23,9 +24,7 @@ module.exports = {
       "3xl": "81.5485px",
     },
   },
-  variants: {
-    extend: {},
-  },
+
   plugins: [
     plugin(function ({ addVariant, e, postcss }) {
       addVariant("firefox", ({ container, separator }) => {
