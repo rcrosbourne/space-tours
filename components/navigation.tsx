@@ -29,8 +29,8 @@ const mobileMenuItems = [
 const Navigation: React.FunctionComponent = ({ children }) => {
   const [showMenu, setShowMenu] = useState(false);
   return (
-    <div className="relative z-auto p-4 overflow-scroll text-white md:px-0 md:pt-0">
-      <div className="relative flex items-center justify-between md:min-h-[96px] xl:max-w-[1500px] xl:mx-auto">
+    <div className="relative z-auto p-4 overflow-hidden text-white md:px-0 md:pt-0 xl:max-w-[1500px] xl:mx-auto">
+      <div className="relative flex items-center justify-between md:min-h-[96px]">
         {/* md:pl-10 md:pr-12 */}
         <div className="relative w-full md:min-h-[96px] flex items-center justify-between pl-2 md:pl-10 xl:pl-14 xl:mt-16">
           <svg viewBox="0 0 40 40" fill="currentColor" className="w-10 h-10">
@@ -95,7 +95,7 @@ const Navigation: React.FunctionComponent = ({ children }) => {
         leaveFrom="transform translate-x-0 opacity-100"
         leaveTo="transform translate-x-full opacity-0"
       >
-        <div className="absolute top-0 right-0 items-center w-64 h-screen origin-top-right md:hidden bg-backdrop backdrop-filter backdrop-blur-3xl firefox:bg-primary">
+        <div className="absolute top-0 right-0 items-center w-64 min-h-[660px] origin-top-right md:hidden bg-backdrop backdrop-filter backdrop-blur-3xl firefox:bg-primary">
           <div className="flex items-start justify-end w-full p-8">
             <button onClick={() => setShowMenu(false)}>
               <svg className="w-5 h-5" viewBox="0 0 20 21" fill="currentColor">
