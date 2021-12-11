@@ -1,33 +1,33 @@
+/* eslint-disable @next/next/link-passhref */
 import React, { Fragment, useState } from "react";
 import { Transition } from "@headlessui/react";
-const mobileMenuItems = [
+import Link from "next/link";
+import { useRouter } from "next/router";
+const menuItems = [
   {
     label: "HOME",
     id: "00",
-    href: "#",
-    active: true,
+    href: "/",
   },
   {
     label: "DESTINATION",
     id: "01",
-    href: "#",
-    active: false,
+    href: "/destination",
   },
   {
     label: "CREW",
     id: "02",
-    href: "#",
-    active: false,
+    href: "/crew",
   },
   {
     label: "TECHNOLOGY",
     id: "03",
-    href: "#",
-    active: false,
+    href: "/technology",
   },
 ];
 const Navigation: React.FunctionComponent = ({ children }) => {
   const [showMenu, setShowMenu] = useState(false);
+  const router = useRouter();
   return (
     <div className="relative z-auto p-4 overflow-hidden text-white md:px-0 md:pt-0 xl:max-w-[1500px] xl:mx-auto">
       <div className="relative flex items-center justify-between md:min-h-[96px]">
@@ -58,24 +58,26 @@ const Navigation: React.FunctionComponent = ({ children }) => {
           {/* backdrop background */}
           <div className="md:absolute md:top-0 md:right-0 md:min-w-[444px]  md:bg-backdrop md:min-h-[96px] md:pl-12 md:backdrop-filter md:backdrop-blur-3xl xl:min-w-[830px] firefox:bg-transparent" />
           <ul className="relative z-auto flex items-center justify-between space-x-9">
-            {mobileMenuItems.map((item) => (
+            {menuItems.map((item) => (
               <li key={item.id} className="flex items-center justify-center">
-                <div
-                  className={
-                    item.active
-                      ? "flex items-center min-h-[96px] border-b-4 border-white pt-1"
-                      : "flex items-center  min-h-[96px]"
-                  }
-                >
-                  <button>
-                    <span className="hidden font-semibold tracking-widest xl:inline font-barlow-condensed">
-                      {item.id}
-                    </span>
-                    <span className="ml-3 font-thin tracking-widest md:ml-0 xl:ml-3 font-barlow-condensed md:leading-4">
-                      {item.label}
-                    </span>
-                  </button>
-                </div>
+                <Link href={item.href}>
+                  <div
+                    className={
+                      router.asPath === item.href
+                        ? "flex items-center min-h-[96px] border-b-4 border-white pt-1"
+                        : "flex items-center  min-h-[96px]"
+                    }
+                  >
+                    <a>
+                      <span className="hidden font-semibold tracking-widest xl:inline font-barlow-condensed">
+                        {item.id}
+                      </span>
+                      <span className="ml-3 font-thin tracking-widest md:ml-0 xl:ml-3 font-barlow-condensed md:leading-4">
+                        {item.label}
+                      </span>
+                    </a>
+                  </div>
+                </Link>
               </li>
             ))}
           </ul>
@@ -120,24 +122,26 @@ const Navigation: React.FunctionComponent = ({ children }) => {
           </div>
           <nav className="pl-8 mt-16 text-white">
             <ul className="space-y-8">
-              {mobileMenuItems.map((item) => (
+              {menuItems.map((item) => (
                 <li key={item.id}>
-                  <div
-                    className={
-                      item.active
-                        ? "flex items-center  min-h-[32px] border-r-4 border-secondary"
-                        : "flex items-center  min-h-[32px]"
-                    }
-                  >
-                    <button>
-                      <span className="font-semibold tracking-widest font-barlow-condensed">
-                        {item.id}
-                      </span>
-                      <span className="ml-3 font-thin tracking-widest font-barlow-condensed">
-                        {item.label}
-                      </span>
-                    </button>
-                  </div>
+                  <Link href={item.href}>
+                    <div
+                      className={
+                        router.asPath === item.href
+                          ? "flex items-center  min-h-[32px] border-r-4 border-secondary"
+                          : "flex items-center  min-h-[32px]"
+                      }
+                    >
+                      <button>
+                        <span className="font-semibold tracking-widest font-barlow-condensed">
+                          {item.id}
+                        </span>
+                        <span className="ml-3 font-thin tracking-widest font-barlow-condensed">
+                          {item.label}
+                        </span>
+                      </button>
+                    </div>
+                  </Link>
                 </li>
               ))}
             </ul>
