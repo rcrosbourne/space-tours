@@ -35,13 +35,13 @@ const mobileMenuItems = [
 const Home: NextPage = () => {
   const [showMenu, setShowMenu] = useState(false);
   return (
-    <div className="min-h-screen relative bg-primary">
+    <div className="relative min-h-screen bg-primary">
       <Head>
         <title>Home</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <div className="xl:hidden absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat bg-center">
+      <div className="absolute top-0 left-0 w-full h-full bg-center bg-no-repeat bg-cover xl:hidden">
         <Image
           src={backgroundImage}
           alt="background image"
@@ -50,7 +50,7 @@ const Home: NextPage = () => {
           objectPosition="center-top"
         />
       </div>
-      <div className="hidden xl:block absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat bg-center">
+      <div className="absolute top-0 left-0 hidden w-full h-full bg-center bg-no-repeat bg-cover xl:block">
         <Image
           src={backgroundImageLg}
           alt="background image"
@@ -60,11 +60,11 @@ const Home: NextPage = () => {
         />
       </div>
 
-      <div className="p-4 md:px-0 md:pt-0 z-auto text-white relative">
+      <div className="relative z-auto p-4 overflow-scroll text-white md:px-0 md:pt-0">
         <div className="relative flex items-center justify-between md:min-h-[96px] xl:max-w-[1500px] xl:mx-auto">
           {/* md:pl-10 md:pr-12 */}
           <div className="relative w-full md:min-h-[96px] flex items-center justify-between pl-2 md:pl-10 xl:pl-14 xl:mt-16">
-            <svg viewBox="0 0 40 40" fill="currentColor" className="h-10 w-10">
+            <svg viewBox="0 0 40 40" fill="currentColor" className="w-10 h-10">
               <circle cx="20" cy="20" r="20" fill="white" />
               <path
                 fillRule="evenodd"
@@ -99,10 +99,10 @@ const Home: NextPage = () => {
                     }
                   >
                     <button>
-                      <span className="hidden xl:inline font-barlow-condensed font-semibold tracking-widest">
+                      <span className="hidden font-semibold tracking-widest xl:inline font-barlow-condensed">
                         {item.id}
                       </span>
-                      <span className="ml-3 md:ml-0 xl:ml-3 font-barlow-condensed font-thin tracking-widest md:leading-4">
+                      <span className="ml-3 font-thin tracking-widest md:ml-0 xl:ml-3 font-barlow-condensed md:leading-4">
                         {item.label}
                       </span>
                     </button>
@@ -112,29 +112,31 @@ const Home: NextPage = () => {
             </ul>
           </nav>
         </div>
-        <div className="mt-12 md:mt-24 md:max-w-[450px] md:mx-auto text-center xl:text-left">
-          <div>
-            <p className="font-barlow-condensed text-secondary leading-5 tracking-[2.7px] font-light xl:text-[28px]">
-              SO, YOU WANT TO TRAVEL TO
-            </p>
-            <p className="font-bellefair text-[80px] leading-[100px] mt-4 xl:text-[150px]">
-              SPACE
-            </p>
+        <div className="flex flex-col items-center justify-between xl:flex-row xl:items-end xl:max-w-[1500px] xl:mx-auto xl:ml-[165px] xl:mt-[251px] xl:mr-[165px]">
+          <div className="mt-12 md:mt-24 md:max-w-[450px] md:mx-auto text-center xl:text-left">
+            <div>
+              <p className="font-barlow-condensed text-secondary leading-5 tracking-[2.7px] font-light xl:text-[28px]">
+                SO, YOU WANT TO TRAVEL TO
+              </p>
+              <p className="font-bellefair text-[80px] leading-[100px] mt-4 xl:text-[150px] xl:leading-[171.9px] xl:mt-6">
+                SPACE
+              </p>
+            </div>
+            <div className="">
+              <p className="font-barlow font-light text-center text-[15px] leading-[25px] text-secondary tracking-wide xl:text-[18px] xl:leading-[32px] xl:text-left xl:mt-6">
+                Let&apos;s face it; if you want to go to space, you might as
+                well genuinely go to outer space and not hover kind of on the
+                edge of it. Well sit back and relax because we&apos;ll give you
+                a truly out of this world experience!
+              </p>
+            </div>
           </div>
-          <div className="">
-            <p className="font-barlow font-light text-center text-[15px] leading-[25px] text-secondary tracking-wide xl:text-[18px] xl:leading-[32px] xl:text-left">
-              Let&apos;s face it; if you want to go to space, you might as well
-              genuinely go to outer space and not hover kind of on the edge of
-              it. Well sit back and relax because we&apos;ll give you a truly
-              out of this world experience!
-            </p>
-          </div>
-        </div>
-        <div className="flex items-center justify-center w-full mt-20  ">
-          <div className="bg-white flex items-center justify-center h-[150px] w-[150px] rounded-full text-center">
-            <p className="font-bellefair text-primary text-xl leading-6 tracking-[1.25px]">
-              EXPLORE
-            </p>
+          <div className="flex items-center justify-center w-full mt-20">
+            <div className="bg-white flex items-center justify-center w-[150px] h-[150px] rounded-full text-center xl:w-[274px] xl:h-[274px] xl:ml-auto">
+              <p className="font-bellefair text-primary text-xl leading-6 tracking-[1.25px] xl:text-[32px] xl:tracking-[2px] xl:leading-[36.67]">
+                EXPLORE
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -149,10 +151,10 @@ const Home: NextPage = () => {
         leaveFrom="transform translate-x-0 opacity-100"
         leaveTo="transform translate-x-full opacity-0"
       >
-        <div className="md:hidden absolute origin-top-right items-center top-0 right-0 w-64 h-screen bg-backdrop backdrop-filter backdrop-blur-3xl firefox:bg-primary">
-          <div className="w-full flex items-start justify-end p-8">
+        <div className="absolute top-0 right-0 items-center w-64 h-screen origin-top-right md:hidden bg-backdrop backdrop-filter backdrop-blur-3xl firefox:bg-primary">
+          <div className="flex items-start justify-end w-full p-8">
             <button onClick={() => setShowMenu(false)}>
-              <svg className="h-5 w-5" viewBox="0 0 20 21" fill="currentColor">
+              <svg className="w-5 h-5" viewBox="0 0 20 21" fill="currentColor">
                 <rect
                   x="2.5752"
                   y="0.954102"
@@ -172,7 +174,7 @@ const Home: NextPage = () => {
               </svg>
             </button>{" "}
           </div>
-          <nav className="text-white mt-16 pl-8">
+          <nav className="pl-8 mt-16 text-white">
             <ul className="space-y-8">
               {mobileMenuItems.map((item) => (
                 <li key={item.id}>
@@ -184,10 +186,10 @@ const Home: NextPage = () => {
                     }
                   >
                     <button>
-                      <span className="font-barlow-condensed font-semibold tracking-widest">
+                      <span className="font-semibold tracking-widest font-barlow-condensed">
                         {item.id}
                       </span>
-                      <span className="ml-3 font-barlow-condensed font-thin tracking-widest">
+                      <span className="ml-3 font-thin tracking-widest font-barlow-condensed">
                         {item.label}
                       </span>
                     </button>
