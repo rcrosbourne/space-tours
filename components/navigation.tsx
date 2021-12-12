@@ -68,14 +68,14 @@ const Navigation: React.FunctionComponent = ({ children }) => {
                         : "flex items-center  min-h-[96px]"
                     }
                   >
-                    <a>
+                    <button>
                       <span className="hidden font-semibold tracking-widest xl:inline font-barlow-condensed">
                         {item.id}
                       </span>
                       <span className="ml-3 font-thin tracking-widest md:ml-0 xl:ml-3 font-barlow-condensed md:leading-4">
                         {item.label}
                       </span>
-                    </a>
+                    </button>
                   </div>
                 </Link>
               </li>

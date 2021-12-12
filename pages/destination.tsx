@@ -12,7 +12,15 @@ import backgroundDestination from "../public/images/background-destination.svg";
 const destinations = [
   {
     id: 0,
-    image: <Image src={moon} alt="moon" />,
+    image: (
+      <Image
+        src={moon}
+        alt="moon"
+        objectFit="cover"
+        height="1334"
+        width="1334"
+      />
+    ),
     name: "MOON",
     description:
       "See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.",
@@ -21,7 +29,15 @@ const destinations = [
   },
   {
     id: 1,
-    image: <Image src={mars} alt="mars" />,
+    image: (
+      <Image
+        src={mars}
+        alt="mars"
+        objectFit="fill"
+        height="1334"
+        width="1334"
+      />
+    ),
     name: "MARS",
     description:
       "Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, the tallest planetary mountain in our solar system. It’s two and a half times the size of Everest!",
@@ -30,7 +46,15 @@ const destinations = [
   },
   {
     id: 2,
-    image: <Image src={europa} alt="europa" />,
+    image: (
+      <Image
+        src={europa}
+        alt="europa"
+        objectFit="fill"
+        height="1334"
+        width="1334"
+      />
+    ),
     name: "EUROPA",
     description:
       "The smallest of the four Galilean moons orbiting Jupiter, Europa is a winter lover’s dream. With an icy surface, it’s perfect for a bit of ice skating, curling, hockey, or simple relaxation in your snug wintery cabin.",
@@ -39,7 +63,15 @@ const destinations = [
   },
   {
     id: 3,
-    image: <Image src={titan} alt="titan" />,
+    image: (
+      <Image
+        src={titan}
+        alt="titan"
+        objectFit="fill"
+        height="1334"
+        width="1334"
+      />
+    ),
     name: "TITAN",
     description:
       "The only moon known to have a dense atmosphere other than Earth, Titan is a home away from home (just a few hundred degrees colder!). As a bonus, you get striking views of the Rings of Saturn.",
@@ -69,18 +101,20 @@ const Destination: NextPage = () => {
         />
       </div>
       <Navigation>
-        <div className="flex flex-col items-center justify-between xl:flex-row xl:items-end xl:max-w-[1500px] xl:mx-auto xl:ml-[165px] xl:mt-[251px] xl:mr-[165px]">
-          <div className="flex mt-6">
-            <span className="font-barlow-condensed tracking-[2.7px] leading-[19.2px] font-bold text-white opacity-25">
+        <div className="flex flex-col items-center justify-between md:pl-10 xl:flex-row xl:items-end xl:max-w-[1500px] xl:mx-auto xl:ml-[165px] xl:mt-[251px] xl:mr-[165px]">
+          <div className="flex md:w-full md:mt-9">
+            <span className="font-barlow-condensed tracking-[2.7px] leading-[19.2px] font-bold text-white opacity-25 md:text-[20px] md:leading-6 md:tracking-[3.38px]">
               01
             </span>
-            <p className="ml-5 leading-[19.2px] tracking-[2.7px] text-white font-barlow-condensed">
+            <p className="ml-5 leading-[19.2px] tracking-[2.7px] text-white font-barlow-condensed md:text-[20px] md:leading-6 md:tracking-[3.38px]">
               PICK YOUR DESTINATION
             </p>
           </div>
-          <div className="mt-8">{selectedDestination.image}</div>
+          <div className="relative mt-8 w-[170px] md:mt-[60px] md:w-[300px] md:aspect-square">
+            {selectedDestination.image}
+          </div>
           <div className="mt-7">
-            <ul className="flex items-center justify-between space-x-7 font-barlow-condensed text-sm tracking-[2.36px] leading-[17px] text-white">
+            <ul className="flex items-center justify-between space-x-7 md:space-x-9 font-barlow-condensed text-sm tracking-[2.36px] leading-[17px] text-white md:tracking-[2.7px] md:leading-[19.2px] md:text-base">
               {destinations.map((destination, index) => (
                 <li key={index}>
                   <button
@@ -100,33 +134,35 @@ const Destination: NextPage = () => {
               ))}
             </ul>
           </div>
-          <div className="mt-5">
-            <div className="text-center after:bg-tertiary">
-              <p className="font-bellefair text-[56px] leading-[64px] text-white">
+          <div className="mt-5 md:mt-8 md:max-w-xl">
+            <div className="text-center">
+              <p className="font-bellefair text-[56px] leading-[64px] text-white md:text-[80px] md:leading-[92px]">
                 {selectedDestination.name}
               </p>
-              <p className="leading-6 font-barlow ">
+              <p className="leading-6 font-barlow md:text-base md:leading-[28px]">
                 {selectedDestination.description}
               </p>
             </div>
             {/* Divider */}
-            <div className="bg-tertiary h-[1px] w-full mt-8"></div>
+            <div className="bg-tertiary h-[1px] w-full mt-8 md:mt-12"></div>
             {/* Divider end */}
-            <div className="mt-8 text-center">
-              <p className="font-barlow-condensed text-sm leading-4 tracking-[2.36px]">
-                AVG. DISTANCE
-              </p>
-              <p className="mt-3 text-3xl leading-8 uppercase font-bellefair">
-                {selectedDestination.distance}
-              </p>
-            </div>
-            <div className="mt-8 text-center">
-              <p className="font-barlow-condensed text-sm leading-4 tracking-[2.36px]">
-                EST. TRAVEL TIME
-              </p>
-              <p className="mt-3 text-3xl leading-8 uppercase font-bellefair">
-                {selectedDestination.time}
-              </p>
+            <div className="mt-8 md:flex md:items-center md:justify-around md:mt-7">
+              <div className="text-center">
+                <p className="font-barlow-condensed text-sm leading-4 tracking-[2.36px]">
+                  AVG. DISTANCE
+                </p>
+                <p className="mt-3 text-3xl leading-8 uppercase font-bellefair">
+                  {selectedDestination.distance}
+                </p>
+              </div>
+              <div className="mt-8 text-center md:mt-0">
+                <p className="font-barlow-condensed text-sm leading-4 tracking-[2.36px]">
+                  EST. TRAVEL TIME
+                </p>
+                <p className="mt-3 text-3xl leading-8 uppercase font-bellefair">
+                  {selectedDestination.time}
+                </p>
+              </div>
             </div>
           </div>
         </div>
