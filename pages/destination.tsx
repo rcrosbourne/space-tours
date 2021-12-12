@@ -91,7 +91,7 @@ const Destination: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <div className="absolute top-0 left-0 w-full h-full bg-center bg-no-repeat bg-cover xl:hidden">
+      <div className="absolute top-0 left-0 w-full h-full bg-center bg-no-repeat bg-cover">
         <Image
           src={backgroundDestination}
           alt="background image"
@@ -101,8 +101,8 @@ const Destination: NextPage = () => {
         />
       </div>
       <Navigation>
-        <div className="flex flex-col items-center justify-between md:pl-10 xl:flex-row xl:items-end xl:max-w-[1500px] xl:mx-auto xl:ml-[165px] xl:mt-[251px] xl:mr-[165px]">
-          <div className="flex md:w-full md:mt-9">
+        <div className="flex flex-col items-center justify-between md:pl-10 xl:grid xl:grid-cols-2 xl:gap-x-[157px] xl:gap-y-16 xl:max-w-[1110.5px] xl:mx-auto">
+          <div className="flex md:w-full md:mt-9 xl:col-span-2 xl:-ml-10">
             <span className="font-barlow-condensed tracking-[2.7px] leading-[19.2px] font-bold text-white opacity-25 md:text-[20px] md:leading-6 md:tracking-[3.38px]">
               01
             </span>
@@ -110,58 +110,62 @@ const Destination: NextPage = () => {
               PICK YOUR DESTINATION
             </p>
           </div>
-          <div className="relative mt-8 w-[170px] md:mt-[60px] md:w-[300px] md:aspect-square">
+          <div className="relative mt-8 w-[170px] md:mt-[60px] md:w-[300px] md:aspect-square xl:place-self-end">
             {selectedDestination.image}
           </div>
-          <div className="mt-7">
-            <ul className="flex items-center justify-between space-x-7 md:space-x-9 font-barlow-condensed text-sm tracking-[2.36px] leading-[17px] text-white md:tracking-[2.7px] md:leading-[19.2px] md:text-base">
-              {destinations.map((destination, index) => (
-                <li key={index}>
-                  <button
-                    onClick={() => setSelectedDestination(destinations[index])}
-                  >
-                    <div
-                      className={`pb-2 mx-auto ${
-                        selectedDestination.id === index
-                          ? "border-b-2 border-white"
-                          : ""
-                      }`}
+          <div className="mt-7 xl:max-w-[445px]">
+            <div className="flex items-center justify-center xl:justify-start">
+              <ul className="flex items-center justify-between space-x-7 md:space-x-9 font-barlow-condensed text-sm tracking-[2.36px] leading-[17px] text-white md:tracking-[2.7px] md:leading-[19.2px] md:text-base">
+                {destinations.map((destination, index) => (
+                  <li key={index}>
+                    <button
+                      onClick={() =>
+                        setSelectedDestination(destinations[index])
+                      }
                     >
-                      <span>{destination.name}</span>
-                    </div>
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="mt-5 md:mt-8 md:max-w-xl">
-            <div className="text-center">
-              <p className="font-bellefair text-[56px] leading-[64px] text-white md:text-[80px] md:leading-[92px]">
-                {selectedDestination.name}
-              </p>
-              <p className="leading-6 font-barlow md:text-base md:leading-[28px]">
-                {selectedDestination.description}
-              </p>
+                      <div
+                        className={`pb-2 mx-auto ${
+                          selectedDestination.id === index
+                            ? "border-b-2 border-white"
+                            : ""
+                        }`}
+                      >
+                        <span>{destination.name}</span>
+                      </div>
+                    </button>
+                  </li>
+                ))}
+              </ul>
             </div>
-            {/* Divider */}
-            <div className="bg-tertiary h-[1px] w-full mt-8 md:mt-12"></div>
-            {/* Divider end */}
-            <div className="mt-8 md:flex md:items-center md:justify-around md:mt-7">
-              <div className="text-center">
-                <p className="font-barlow-condensed text-sm leading-4 tracking-[2.36px]">
-                  AVG. DISTANCE
+            <div className="mt-5 md:mt-8 md:max-w-xl">
+              <div className="text-center xl:text-left">
+                <p className="font-bellefair text-[56px] leading-[64px] text-white md:text-[80px] md:leading-[92px]">
+                  {selectedDestination.name}
                 </p>
-                <p className="mt-3 text-3xl leading-8 uppercase font-bellefair">
-                  {selectedDestination.distance}
+                <p className="leading-6 font-barlow md:text-base md:leading-[28px]">
+                  {selectedDestination.description}
                 </p>
               </div>
-              <div className="mt-8 text-center md:mt-0">
-                <p className="font-barlow-condensed text-sm leading-4 tracking-[2.36px]">
-                  EST. TRAVEL TIME
-                </p>
-                <p className="mt-3 text-3xl leading-8 uppercase font-bellefair">
-                  {selectedDestination.time}
-                </p>
+              {/* Divider */}
+              <div className="bg-tertiary h-[1px] w-full mt-8 md:mt-12"></div>
+              {/* Divider end */}
+              <div className="mt-8 md:flex md:items-center md:justify-around md:mt-7 xl:justify-start xl:gap-20">
+                <div className="text-center xl:text-left">
+                  <p className="font-barlow-condensed text-sm leading-4 tracking-[2.36px]">
+                    AVG. DISTANCE
+                  </p>
+                  <p className="mt-3 text-3xl leading-8 uppercase font-bellefair">
+                    {selectedDestination.distance}
+                  </p>
+                </div>
+                <div className="mt-8 text-center md:mt-0 xl:text-left">
+                  <p className="font-barlow-condensed text-sm leading-4 tracking-[2.36px]">
+                    EST. TRAVEL TIME
+                  </p>
+                  <p className="mt-3 text-3xl leading-8 uppercase font-bellefair">
+                    {selectedDestination.time}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
