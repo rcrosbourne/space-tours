@@ -11,6 +11,7 @@ module.exports = {
       primary: "#0B0D17",
       secondary: "#D0D6F9",
       tertiary: "#616476",
+      quaternary: "#383B4B",
       white: "#FFFFFF",
       black: "#000000",
       backdrop: "hsla(0, 0%, 100%, 0.04)",
