@@ -89,8 +89,8 @@ const Crew: NextPage = () => {
         />
       </div>
       <Navigation>
-        <div className="flex flex-col items-center justify-between md:pl-10 xl:grid xl:grid-cols-2 xl:gap-x-[157px] xl:gap-y-16 xl:max-w-[1110.5px] xl:mx-auto">
-          <div className="flex md:w-full md:mt-9 xl:col-span-2 xl:-ml-10">
+        <div className="flex flex-col items-center justify-between md:grid md:grid-cols-1 xl:grid xl:grid-cols-2 xl:gap-x-[157px] xl:gap-y-16 xl:max-w-[1110.5px] xl:mx-auto">
+          <div className="flex md:w-full md:pl-10 md:mt-9 xl:col-span-2 xl:-ml-10">
             <span className="font-barlow-condensed tracking-[2.7px] leading-[19.2px] font-bold text-white opacity-25 md:text-[20px] md:leading-6 md:tracking-[3.38px]">
               02
             </span>
@@ -98,14 +98,14 @@ const Crew: NextPage = () => {
               MEET YOUR CREW
             </p>
           </div>
-          <div className="relative w-[327px] h-[223px] border-b-2 border-quaternary mt-8 md:mt-[60px] md:w-[300px] md:aspect-square xl:place-self-end">
-            <div className="relative w-[177.12px] h-[222px] mx-auto">
+          <div className="relative w-[327px] h-[223px] border-b-2 border-quaternary mt-8 md:mx-auto md:border-none md:w-[456px] md:min-h-[572px] md:mt-[60px]  xl:place-self-end">
+            <div className="relative w-[177.12px] h-[222px] mx-auto md:w-full md:h-full">
               {selectedCrewMember.image}
             </div>
           </div>
-          <div className="mt-7 xl:max-w-[445px]">
-            <div className="flex items-center justify-center xl:justify-start">
-              <ul className="flex items-center justify-between space-x-4 md:space-x-9 font-barlow-condensed text-sm tracking-[2.36px] leading-[17px] text-white md:tracking-[2.7px] md:leading-[19.2px] md:text-base">
+          <div className="mt-7 xl:max-w-[445px] md:row-start-2 md:grid md:grid-cols-1 md:mx-auto">
+            <div className="flex items-center justify-center xl:justify-start md:row-start-2">
+              <ul className="flex items-center justify-between space-x-4 md:space-x-4 font-barlow-condensed text-sm tracking-[2.36px] leading-[17px] text-white md:tracking-[2.7px] md:leading-[19.2px] md:text-base md:mt-10">
                 {crew.map((member, index) => (
                   <li key={index}>
                     <button onClick={() => setSelectedCrewMemeber(crew[index])}>
@@ -125,13 +125,13 @@ const Crew: NextPage = () => {
             </div>
             <div className="mt-5 md:mt-8 md:max-w-xl">
               <div className="text-center xl:text-left">
-                <p className="uppercase font-bellefair text-base leading-[18px] text-white/50 md:text-[80px] md:leading-[92px]">
+                <p className="uppercase font-bellefair text-base leading-[18px] text-white/50 md:text-2xl md:leading-7">
                   {selectedCrewMember.title}
                 </p>
-                <p className="font-bellefair text-2xl leading-7 mt-2 text-white uppercase md:text-[80px] md:leading-[92px]">
+                <p className="font-bellefair text-2xl leading-7 mt-2 text-white uppercase md:text-[40px] md:leading-[46px] md:mt-2">
                   {selectedCrewMember.name}
                 </p>
-                <p className="leading-6 font-barlow text-[15px] mt-4 text-secondary md:text-base md:leading-[28px]">
+                <p className="leading-6 font-barlow text-[15px] mt-4 text-secondary md:text-base md:leading-[28px] md:mt-4">
                   {selectedCrewMember.bio}
                 </p>
               </div>
