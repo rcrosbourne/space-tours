@@ -625,6 +625,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   min-height: 170px;
 }
 
+.min-h-\[310px\]{
+  min-height: 310px;
+}
+
 .w-full{
   width: 100%;
 }
@@ -962,6 +966,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 27.5px;
 }
 
+.leading-\[18\.34px\]{
+  line-height: 18.34px;
+}
+
 .tracking-\[2\.7px\]{
   letter-spacing: 2.7px;
 }
@@ -980,6 +988,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .tracking-widest{
   letter-spacing: 0.1em;
+}
+
+.tracking-\[1px\]{
+  letter-spacing: 1px;
 }
 
 .text-white{
@@ -1117,6 +1129,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-left: 0px;
   }
 
+  .md\:mt-14{
+    margin-top: 3.5rem;
+  }
+
   .md\:flex{
     display: flex;
   }
@@ -1137,12 +1153,24 @@ Ensure the default browser behavior of the `hidden` attribute.
     height: 100%;
   }
 
+  .md\:h-12{
+    height: 3rem;
+  }
+
   .md\:min-h-\[572px\]{
     min-height: 572px;
   }
 
   .md\:min-h-\[96px\]{
     min-height: 96px;
+  }
+
+  .md\:min-h-\[310px\]{
+    min-height: 310px;
+  }
+
+  .md\:min-h-\[320px\]{
+    min-height: 320px;
   }
 
   .md\:w-full{
@@ -1157,6 +1185,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 300px;
   }
 
+  .md\:w-12{
+    width: 3rem;
+  }
+
   .md\:min-w-\[444px\]{
     min-width: 444px;
   }
@@ -1167,6 +1199,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:max-w-\[450px\]{
     max-width: 450px;
+  }
+
+  .md\:max-w-\[458px\]{
+    max-width: 458px;
   }
 
   .md\:grid-cols-1{
@@ -1244,6 +1280,20 @@ Ensure the default browser behavior of the `hidden` attribute.
     font-size: 80px;
   }
 
+  .md\:text-3xl{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .md\:text-\[24px\]{
+    font-size: 24px;
+  }
+
+  .md\:text-4xl{
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
   .md\:leading-6{
     line-height: 1.5rem;
   }
@@ -1272,12 +1322,24 @@ Ensure the default browser behavior of the `hidden` attribute.
     line-height: 1rem;
   }
 
+  .md\:leading-\[27\.5px\]{
+    line-height: 27.5px;
+  }
+
+  .md\:leading-\[45\.84px\]{
+    line-height: 45.84px;
+  }
+
   .md\:tracking-\[3\.38px\]{
     letter-spacing: 3.38px;
   }
 
   .md\:tracking-\[2\.7px\]{
     letter-spacing: 2.7px;
+  }
+
+  .md\:tracking-\[1\.5px\]{
+    letter-spacing: 1.5px;
   }
 
   .md\:backdrop-blur-3xl{
@@ -1297,12 +1359,44 @@ Ensure the default browser behavior of the `hidden` attribute.
     grid-column: span 2 / span 2;
   }
 
+  .xl\:col-span-3{
+    grid-column: span 3 / span 3;
+  }
+
+  .xl\:col-start-3{
+    grid-column-start: 3;
+  }
+
+  .xl\:col-start-2{
+    grid-column-start: 2;
+  }
+
+  .xl\:col-start-1{
+    grid-column-start: 1;
+  }
+
   .xl\:row-span-2{
     grid-row: span 2 / span 2;
   }
 
+  .xl\:row-span-1{
+    grid-row: span 1 / span 1;
+  }
+
+  .xl\:row-span-3{
+    grid-row: span 3 / span 3;
+  }
+
   .xl\:row-start-2{
     grid-row-start: 2;
+  }
+
+  .xl\:row-start-1{
+    grid-row-start: 1;
+  }
+
+  .xl\:row-start-3{
+    grid-row-start: 3;
   }
 
   .xl\:mx-auto{
@@ -1350,6 +1444,38 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-left: 0.75rem;
   }
 
+  .xl\:mt-0{
+    margin-top: 0px;
+  }
+
+  .xl\:-mt-10{
+    margin-top: -2.5rem;
+  }
+
+  .xl\:-mt-20{
+    margin-top: -5rem;
+  }
+
+  .xl\:-mt-\[10px\]{
+    margin-top: -10px;
+  }
+
+  .xl\:-mt-\[30px\]{
+    margin-top: -30px;
+  }
+
+  .xl\:-mt-\[40px\]{
+    margin-top: -40px;
+  }
+
+  .xl\:-mt-\[50px\]{
+    margin-top: -50px;
+  }
+
+  .xl\:mt-\[7\.7rem\]{
+    margin-top: 7.7rem;
+  }
+
   .xl\:block{
     display: block;
   }
@@ -1374,8 +1500,20 @@ Ensure the default browser behavior of the `hidden` attribute.
     height: 274px;
   }
 
+  .xl\:h-40{
+    height: 10rem;
+  }
+
+  .xl\:h-20{
+    height: 5rem;
+  }
+
   .xl\:min-h-\[712px\]{
     min-height: 712px;
+  }
+
+  .xl\:min-h-\[527px\]{
+    min-height: 527px;
   }
 
   .xl\:w-\[568px\]{
@@ -1390,8 +1528,20 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 274px;
   }
 
+  .xl\:w-40{
+    width: 10rem;
+  }
+
+  .xl\:w-20{
+    width: 5rem;
+  }
+
   .xl\:min-w-\[830px\]{
     min-width: 830px;
+  }
+
+  .xl\:min-w-\[470px\]{
+    min-width: 470px;
   }
 
   .xl\:max-w-\[1110\.5px\]{
@@ -1406,20 +1556,40 @@ Ensure the default browser behavior of the `hidden` attribute.
     max-width: 1500px;
   }
 
+  .xl\:max-w-\[470px\]{
+    max-width: 470px;
+  }
+
   .xl\:grid-cols-2{
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .xl\:grid-cols-3{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .xl\:flex-row{
     flex-direction: row;
   }
 
+  .xl\:flex-col{
+    flex-direction: column;
+  }
+
   .xl\:items-end{
     align-items: flex-end;
   }
 
+  .xl\:items-center{
+    align-items: center;
+  }
+
   .xl\:justify-start{
     justify-content: flex-start;
+  }
+
+  .xl\:justify-center{
+    justify-content: center;
   }
 
   .xl\:gap-20{
@@ -1433,6 +1603,23 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .xl\:gap-y-16{
     row-gap: 4rem;
+  }
+
+  .xl\:gap-x-\[130px\]{
+    -moz-column-gap: 130px;
+         column-gap: 130px;
+  }
+
+  .xl\:space-y-8 > :not([hidden]) ~ :not([hidden]){
+    --tw-space-y-reverse: 0;
+    margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+  }
+
+  .xl\:space-x-0 > :not([hidden]) ~ :not([hidden]){
+    --tw-space-x-reverse: 0;
+    margin-right: calc(0px * var(--tw-space-x-reverse));
+    margin-left: calc(0px * calc(1 - var(--tw-space-x-reverse)));
   }
 
   .xl\:place-self-end{
