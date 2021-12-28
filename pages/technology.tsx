@@ -3,7 +3,7 @@ import Head from "next/head";
 import React, { Fragment, useState } from "react";
 import Image from "next/image";
 import Navigation from "../components/navigation";
-import launchVehicleMobile from "../public/images/launch-vehicle-mobile.svg";
+import launchVehicle from "../public/images/launch-vehicle.svg";
 import spaceCapsule from "../public/images/space-capsule.svg";
 import spaceport from "../public/images/spaceport.svg";
 import backgroundTechnology from "../public/images/background-technology-mobile.svg";
@@ -17,10 +17,10 @@ const technology = [
       "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!",
     image: (
       <Image
-        src={launchVehicleMobile}
+        src={launchVehicle}
         alt="Launch Vehicle"
-        objectFit="cover"
         layout="fill"
+        objectFit="cover"
       />
     ),
   },
@@ -60,13 +60,13 @@ const Technology: NextPage = () => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div className="w-full h-full bg-center bg-no-repeat bg-cover">
-        {/* <Image
+        <Image
           src={backgroundTechnology}
           alt="background image"
           layout="fill"
           objectFit="cover"
           objectPosition="center-top"
-        /> */}
+        />
       </div>
       <Navigation>
         <div className="flex flex-col items-center justify-between md:grid md:grid-cols-1 xl:grid xl:grid-cols-2 xl:gap-x-[157px] xl:gap-y-16 xl:max-w-[1110.5px] xl:mx-auto">
@@ -78,8 +78,8 @@ const Technology: NextPage = () => {
               SPACE LAUNCH 101
             </p>
           </div>
-          <div className="relative w-full h-[170px] mt-8 md:mx-auto md:border-none md:w-[456px] md:min-h-[572px] md:mt-[60px]  xl:place-self-end xl:w-[568px] xl:min-h-[712px] xl:row-span-2">
-            <div className="relative w-[373px] h-[170px] mx-auto md:w-full md:h-full -ml-4">
+          <div className="relative w-full mt-8 md:mx-auto md:border-none md:w-[456px] md:min-h-[572px] md:mt-[60px]  xl:place-self-end xl:w-[568px] xl:min-h-[712px] xl:row-span-2">
+            <div className="relative w-full min-h-[170px] mx-auto bg-white md:w-full md:h-full">
               {selectedTechnology.image}
             </div>
           </div>
